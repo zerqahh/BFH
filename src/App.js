@@ -1,10 +1,13 @@
-import "./App.scss";
-
+import Header from "./Header.js";
+import Bflag from "./Bflag.js";
+import Footer from "./footer.js";
 function App() {
   return (
-    <div className="App">
-      <header className="App-header"></header>
-    </div>
+    <>
+      <Header />
+      <Bflag />
+      <Footer />
+    </>
   );
 }
 

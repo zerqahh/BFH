@@ -1,0 +1,131 @@
+.App-header {
+  width: 100vw;
+  height: 6vmin;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+
+
+  .header-content {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+
+
+    .header-logo {
+      width: 15%;
+      height: 100%;
+
+      display: flex;
+      flex-direction: column;
+      line-height: 2.5vmin;
+      align-items: center;
+      font-family: var(--font-secondary);
+      cursor: pointer;
+
+      .logo-container {
+        width: 50%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+
+        .logo-top {
+
+          font-size: 3vmin;
+          font-weight: 900;
+          color: white;
+        }
+
+        .logo-bottom {
+          font-size: 2.5vmin;
+          font-weight: 600;
+          color: var(--color-pink);
+        }
+      }
+    }
+
+    .header-nav {
+      width: 70%;
+      height: 100%;
+      display: flex;
+
+
+
+      .nav-menu {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 5%;
+        text-transform: uppercase;
+
+
+        a {
+          text-decoration: none;
+          font-size: 2vmin;
+
+          font-family: var(--font-primary);
+          font-weight: 400;
+          color: rgba(255, 255, 255, 0.85);
+          text-decoration-color: var(--color-pink);
+          text-decoration-skip-ink: none;
+        }
+
+        a:hover {
+          color: white;
+
+          text-decoration: underline;
+          text-decoration-thickness: 2px;
+          text-decoration-color: var(--color-pink);
+          text-underline-offset: 25%;
+          text-decoration-skip-ink: none;
+          transition: all 0.1s;
+        }
+
+        a:focus {
+          color: white;
+          text-decoration: underline;
+
+          text-decoration-thickness: 0.7vmin;
+          text-decoration-color: var(--color-pink);
+          font-size: 2.5vmin;
+          transition: 0.3s;
+          padding: 5px;
+          text-underline-offset: 1.4vmin;
+        }
+      }
+    }
+
+    .nav-login {
+      width: 15%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+
+      button {
+        border-radius: 1vmin;
+        border: 1px solid transparent;
+        padding: 1vmin 4vmin;
+
+        font-size: 2vmin;
+        font-weight: 700;
+        font-family: var(--font-primary);
+        background-color: #1a1a1a;
+        cursor: pointer;
+        white-space: nowrap;
+      }
+
+      button:hover {
+        background-color: var(--color-pink);
+        transition: 0.1s;
+      }
+    }
+  }
+}
