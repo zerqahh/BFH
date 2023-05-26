@@ -104,7 +104,6 @@
 
           width: 50%;
           display: flex;
-          gap: 1px;
           justify-content: center;
 
 
@@ -112,15 +111,10 @@
           :hover {
 
             cursor: pointer;
-            // background-color: var(--color-pink);
             background: linear-gradient(0deg, rgba(199, 10, 120, 1) 5%, rgb(24, 23, 23) 5%);
             transition: all 0.1s;
 
           }
-
-
-
-
 
           .icon {
             width: 30%;
@@ -129,19 +123,13 @@
             justify-content: center;
             align-items: center;
 
-
-
             svg {
               fill: white;
             }
 
-
-
             &:active {
               svg {
-
                 opacity: 0.8;
-
               }
             }
 
