@@ -6,8 +6,8 @@ function Header() {
       <div className="header-content">
         <div className="header-logo">
           <div className="logo-container">
-            <div className="logo-top">MISCHIEF</div>
-            <div className="logo-bottom">MANAGED</div>
+            <div className="logo-top">BFLAG</div>
+            <div className="logo-bottom">HUB</div>
           </div>
         </div>
 
