@@ -270,7 +270,7 @@
 
     .mainfeed {
       width: 70%;
-      height: 99%;
+      height: 100%;
       display: flex;
       justify-content: center;
       flex-direction: column-reverse;
@@ -291,28 +291,30 @@
           width: 100%;
           height: 100%;
           display: flex;
+          align-items: center;
+          flex-direction: column;
 
-          justify-content: center;
-
-
-          .mainfeed-text-mid {
+          .mainfeed-text-top {
             width: 95%;
-            height: 100%;
-            background-color: rgb(8, 8, 8);
+            height: 20%;
+
             display: flex;
             flex-direction: column;
             gap: 1%;
-            overflow-y: auto;
-            overflow-x: hidden;
-            opacity: 0.75;
+            background-color: rgb(123, 123, 136);
 
-            .text-generated {
-              width: 100%;
-              height: auto;
-              background-color: gray;
-            }
+
+
           }
 
+          .mainfeed-text-bottom {
+            display: flex;
+            width: 95%;
+            height: 80%;
+            background-color: rgb(194, 185, 185);
+            overflow-y: auto;
+            overflow-x: hidden;
+          }
         }
       }
 

@@ -36,7 +36,10 @@ function Bflag() {
 
           <div className="mainfeed-bottom">
             <div className="mainfeed-text">
-              <div className="mainfeed-text-mid">
+              <div className="mainfeed-text-top">
+
+              </div>
+              <div className="mainfeed-text-bottom">
 
               </div>
             </div>

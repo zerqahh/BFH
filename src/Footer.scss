@@ -1,14 +1,12 @@
 .footer-container {
   width: 100vw;
-  // height: 100vh;
   display: flex;
   flex-direction: row;
-  // border-top: var(--border);
   position: fixed;
-
+  justify-content: center;
 
   .event-container {
-    width: 100%;
+    width: 70%;
     height: 6vmin;
     display: flex;
     justify-content: space-between;
@@ -83,7 +81,6 @@
     }
 
 
-
     .event-box:hover {
       background-color: rgb(19, 19, 19);
       transition: 0.2s;
@@ -95,11 +92,7 @@
 
 
 
-    :nth-child(1) {
-
-      // border-bottom-left-radius: 100%;
-
-    }
+    :nth-child(1) {}
 
     :nth-child(2) {
       align-items: center;
@@ -108,7 +101,6 @@
     :nth-child(3) {
       align-items: flex-start;
       // border-bottom-right-radius: 100%;
-
 
     }
 
