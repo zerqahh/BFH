@@ -10,7 +10,6 @@
     width: 100%;
     height: 100%;
     display: flex;
-    justify-content: space-between;
     position: relative;
 
     .header-logo {
@@ -22,10 +21,11 @@
       line-height: 2.5vmin;
       align-items: center;
       font-family: var(--font-secondary);
+
       cursor: pointer;
 
       .logo-container {
-        width: 50%;
+        width: auto;
         height: 100%;
         display: flex;
         flex-direction: column;
@@ -41,7 +41,7 @@
         }
 
         .logo-bottom {
-          font-size: 2.5vmin;
+          font-size: 2vmin;
           font-weight: 600;
           color: var(--color-pink);
         }
@@ -66,39 +66,7 @@
 
 
 
-        a {
-          text-decoration: none;
-          font-size: 2vmin;
 
-          font-family: var(--font-primary);
-          font-weight: 400;
-          color: rgba(255, 255, 255, 0.85);
-          text-decoration-color: var(--color-pink);
-          text-decoration-skip-ink: none;
-        }
-
-        a:hover {
-          color: white;
-
-          text-decoration: underline;
-          text-decoration-thickness: 2px;
-          text-decoration-color: var(--color-pink);
-          text-underline-offset: 25%;
-          text-decoration-skip-ink: none;
-          transition: all 0.1s;
-        }
-
-        a:focus {
-          color: white;
-          text-decoration: underline;
-
-          text-decoration-thickness: 0.7vmin;
-          text-decoration-color: var(--color-pink);
-          font-size: 2.5vmin;
-          transition: 0.3s;
-
-          text-underline-offset: 1.4vmin;
-        }
 
         .nav-icons {
 
@@ -106,6 +74,9 @@
           display: flex;
           justify-content: center;
 
+          .nav-icons:focus {
+            background: linear-gradient(0deg, rgba(199, 10, 120, 1) 5%, rgb(24, 23, 23) 5%);
+          }
 
 
           :hover {
@@ -125,11 +96,14 @@
 
             svg {
               fill: white;
+              width: 2.5vmin;
+              height: 2.5vmin;
             }
 
             &:active {
               svg {
-                opacity: 0.8;
+                opacity: 0.7;
+
               }
             }
 
@@ -137,7 +111,12 @@
               background: none;
             }
 
+
           }
+
+
+
+
         }
 
 

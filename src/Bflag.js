@@ -1,7 +1,26 @@
 import "./App.scss";
 import "./Bflag.scss";
+import React, { useState } from 'react';
+
+
 
 function Bflag() {
+
+  // Wstawianie tekstu generujac div w feedzie 
+  const [inputText, setInputText] = useState('');
+  const [generatedText, setGeneratedText] = useState([]);
+
+  const handleInputChange = (event) => {
+    setInputText(event.target.value);
+  };
+
+  const handleButtonClick = () => {
+    setGeneratedText((prevGeneratedText) => [inputText, ...prevGeneratedText]);
+    setInputText('');
+  };
+
+
+
   return (
     <section className="main-container">
 
@@ -34,13 +53,34 @@ function Bflag() {
         </div>
         <div className="mainfeed">
 
-          <div className="mainfeed-bottom">
+          <div className="mainfeed-container">
             <div className="mainfeed-text">
-              <div className="mainfeed-text-top">
+              <div className="mainfeed-top">
 
               </div>
-              <div className="mainfeed-text-bottom">
+              <div className="mainfeed-bottom">
+                <div className="mainfeed-post">
+                  <p>BATTLEFEED</p>
+                  <div className="mainfeed-post-input">
+                    <input value={inputText} onChange={handleInputChange} maxLength={1000} />
+                    <button onClick={handleButtonClick} disabled={inputText.trim() === ''}>STATUS UPDATE</button>
+                  </div>
+                </div>
+                <div className="mainfeed-view">
+                  <div className="mainfeed-view-title">
+                    <p>BATTLEFEED</p>
+                  </div>
 
+                  {generatedText.map((text, index) => (
+                    <div className="mainfeed-view-generated" key={index}>
+                      <p id="nick" >zerqPROSPIELER</p>
+                      <p>{text}</p>
+
+
+                    </div>
+                  ))}
+
+                </div>
               </div>
             </div>
 
