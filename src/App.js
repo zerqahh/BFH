@@ -1,18 +1,27 @@
-import Header from "./Header.js";
-import Bflag from "./Bflag.js";
-import Footer from "./footer.js";
 
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LoginPage from "./loginPage.js";
+import Success from "./successLogin.js";
 
+// function App() {
+//   return (
+//     <>
+//       <Header />
+//       <Bflag />
+//       <Footer />
+//     </>
+//   );
+// }
 
 
 function App() {
   return (
-    <>
-      <Header />
-      <Bflag />
-      <Footer />
-    </>
-  );
+    <Router>
+      <Routes>
+        <Route path="/" element={<LoginPage />}></Route>
+        <Route path="/success" element={<Success />} ></Route>
+      </Routes>
+    </Router>
+  )
 }
-
 export default App;

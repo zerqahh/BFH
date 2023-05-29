@@ -1,6 +1,7 @@
 import "./App.scss";
 import "./Bflag.scss";
 import React, { useState } from 'react';
+import { v4 as uuidv4 } from 'uuid';
 
 
 
@@ -14,12 +15,13 @@ function Bflag() {
     setInputText(event.target.value);
   };
 
+
   const handleButtonClick = () => {
-    setGeneratedText((prevGeneratedText) => [inputText, ...prevGeneratedText]);
+    const id = uuidv4();
+    const post = { id, text: inputText };
+    setGeneratedText((prevGeneratedText) => [post, ...prevGeneratedText]);
     setInputText('');
   };
-
-
 
   return (
     <section className="main-container">
@@ -59,8 +61,7 @@ function Bflag() {
 
               </div>
               <div className="mainfeed-bottom">
-                <div className="mainfeed-post">
-                  <p>BATTLEFEED</p>
+                <div className="mainfeed-post"><p>STATUS UPDATE</p>
                   <div className="mainfeed-post-input">
                     <input value={inputText} onChange={handleInputChange} maxLength={1000} />
                     <button onClick={handleButtonClick} disabled={inputText.trim() === ''}>STATUS UPDATE</button>
@@ -71,10 +72,12 @@ function Bflag() {
                     <p>BATTLEFEED</p>
                   </div>
 
-                  {generatedText.map((text, index) => (
-                    <div className="mainfeed-view-generated" key={index}>
-                      <p id="nick" >zerqPROSPIELER</p>
-                      <p>{text}</p>
+                  {generatedText.map((post) => (
+                    <div className="mainfeed-view-generated" key={post.id}>
+                      <p id="nick">name</p>
+                      <p>{post.text}</p>
+                      {/* <a href={`https://bflaghub.com/posts/${post.id}`}>Przejdź do postu</a> */}
+
 
 
                     </div>

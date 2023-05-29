@@ -1,6 +1,11 @@
 import "./App.scss";
 import "./Header.scss";
-function Header() {
+function Header({ user, onLogout }) {
+
+  const username = user?.user_metadata?.provider_access_token?.username || "";
+
+
+
   return (
     <header className="App-header">
       <div className="header-content">
@@ -35,12 +40,20 @@ function Header() {
 
 
         <div className="nav-login">
-          <button>
-            <span>SIGN IN</span>
-          </button>
 
-          <div className="login-name"></div>
-          <div className="login-avatar"></div>
+
+          <div className="login-name">
+            <span>{user.identities[1]?.identity_data?.full_name}</span>
+
+
+          </div>
+
+          <div className="login-avatar">
+            <img src={user.identities[1]?.identity_data?.avatar_url} alt="Avatar" style={{ width: "5vmin", height: "5vmin", borderRadius: "5vmin" }} /> </div>
+
+          <button onClick={onLogout}>
+            <span>SIGN OUT</span>
+          </button>
         </div>
       </div>
     </header>
