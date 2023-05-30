@@ -1,0 +1,35 @@
+.login-background {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url(./assets/bg-bf3.jpg);
+    background-position: center center;
+    background-size: cover;
+}
+
+
+.loginPage {
+    display: flex;
+    justify-content: center;
+
+    &.hide-form {
+        form {
+            display: none;
+        }
+    }
+
+}
+
+
+
+.t-dOnDMp {
+    width: 50vmin;
+    background-color: rgba(0, 0, 0, 0.9);
+    padding-left: 3vmin;
+    padding-right: 3vmin;
+    padding-top: 5vmin;
+    padding-bottom: 5vmin;
+    border-radius: 5vmin;
+
+}

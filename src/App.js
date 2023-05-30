@@ -1,25 +1,21 @@
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import LoginPage from "./loginPage.js";
 import Success from "./successLogin.js";
 
-// function App() {
-//   return (
-//     <>
-//       <Header />
-//       <Bflag />
-//       <Footer />
-//     </>
-//   );
-// }
+
 
 
 function App() {
+
+
+
   return (
     <Router>
       <Routes>
         <Route path="/" element={<LoginPage />}></Route>
-        <Route path="/success" element={<Success />} ></Route>
+        <Route path="/bf3" element={<Success />} ></Route>
+        <Route path="/*" element={<Navigate to="/" />} />
       </Routes>
     </Router>
   )

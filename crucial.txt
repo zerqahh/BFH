@@ -1,0 +1,15 @@
+API:
+
+supabase url 
+https://hunvqnqhkoajdylgpfkk.supabase.co
+
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh1bnZxbnFoa29hamR5bGdwZmtrIiwicm9sZSI6ImFub24iLCJpYXQiOjE2ODUzODc1NDEsImV4cCI6MjAwMDk2MzU0MX0.pyQ-VEUf11opspeujXdjnL_i5p6kVpYyn-rpLWjAggA
+
+
+
+discord developer
+
+client id: 1112037335673094205
+client secret: TBV99Z2FNu-jLZVGSdyWTRUKS-KmJVZn
+
+redirect: https://hunvqnqhkoajdylgpfkk.supabase.co/auth/v1/callback

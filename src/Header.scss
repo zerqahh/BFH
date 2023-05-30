@@ -134,31 +134,66 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 1.5vmin;
+      gap: 2.5vmin;
+      position: relative;
 
-      button {
-        border-radius: 1vmin;
-        border: 1px solid transparent;
-        padding: 1vmin 4vmin;
+      .login-name {
+        font-weight: 600;
+        font-family: var(--font-ranking);
+        font-size: 1.75vmin;
+      }
 
-        font-size: 2vmin;
-        font-weight: 700;
-        font-family: var(--font-primary);
-        background-color: #1a1a1a;
+
+      &:hover {
+        background-color: rgb(8, 8, 8);
+
         cursor: pointer;
-        white-space: nowrap;
       }
 
-      button:hover {
-        background-color: var(--color-pink);
-        transition: 0.1s;
+      &:hover ul {
+        display: block;
       }
 
-      span {
-        font-size: 2vmin;
-        font-family: var(--font-primary);
-      }
+      ul {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 0;
+        margin: 0;
+        list-style: none;
 
+
+        li {
+          display: block;
+
+
+          button {
+            // border-radius: 1vmin;
+            border: 1px solid transparent;
+            padding: 1vmin 4vmin;
+            width: 100%;
+            font-size: 2vmin;
+            font-weight: 400;
+            font-family: var(--font-primary);
+            background-color: #1a1a1a;
+            cursor: pointer;
+            white-space: nowrap;
+          }
+
+          button:hover {
+            background-color: var(--color-pink);
+            transition: 0.1s;
+          }
+
+          span {
+            font-size: 1.75vmin;
+            font-family: var(--font-primary);
+
+          }
+
+        }
+      }
     }
   }
 }

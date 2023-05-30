@@ -1,11 +1,13 @@
 import "./App.scss";
 import "./Bflag.scss";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import supabase from "./supabase.js";
 
 
+function Bflag(props) {
+  const { user } = props;
 
-function Bflag() {
 
   // Wstawianie tekstu generujac div w feedzie 
   const [inputText, setInputText] = useState('');
@@ -15,13 +17,44 @@ function Bflag() {
     setInputText(event.target.value);
   };
 
+  //Fetchowanie z bazy danych
+  const fetchPosts = async () => {
+    const { data, error } = await supabase.from('posts').select('*');
+    if (error) {
+      console.error('Error fetching posts:', error);
+    } else {
+      setGeneratedText(data ? data.reverse() : []);
+    }
+  };
 
+  useEffect(() => {
+    fetchPosts();
+  }, []);
+
+
+
+
+  //wstawianie posta do bazy danych
+  const savePostToDatabase = async (post) => {
+    const { data, error } = await supabase.from('posts').insert([post]);
+    if (error) {
+      console.error('Error saving post:', error);
+    } else {
+      console.log('Post saved successfully:', data);
+      fetchPosts();
+    }
+  };
+
+  //przycisk status
   const handleButtonClick = () => {
     const id = uuidv4();
     const post = { id, text: inputText };
     setGeneratedText((prevGeneratedText) => [post, ...prevGeneratedText]);
     setInputText('');
+
+    savePostToDatabase(post);
   };
+
 
   return (
     <section className="main-container">
@@ -74,11 +107,16 @@ function Bflag() {
 
                   {generatedText.map((post) => (
                     <div className="mainfeed-view-generated" key={post.id}>
-                      <p id="nick">name</p>
-                      <p>{post.text}</p>
-                      {/* <a href={`https://bflaghub.com/posts/${post.id}`}>Przejdź do postu</a> */}
-
-
+                      <div className="generated-container">
+                        <>
+                          <img src={user.user_metadata.avatar_url} alt="Avatar" style={{ width: "4.5vmin", height: "4.5vmin" }} />
+                        </>
+                        <div className="generated-post">
+                          <p id="nick">{user.user_metadata.full_name}:</p>
+                          <p>{post.text}</p>
+                          {/* <a href={`https://bflaghub.com/posts/${post.id}`}>Przejdź do postu</a> */}
+                        </div>
+                      </div>
 
                     </div>
                   ))}
@@ -94,7 +132,7 @@ function Bflag() {
       </div>
 
 
-    </section>
+    </section >
   );
 }
 
