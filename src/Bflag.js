@@ -3,11 +3,20 @@ import "./Bflag.scss";
 import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import supabase from "./supabase.js";
+import LeftSidebar from './LeftSidebar';
+import ProfileWindow from './ProfileWindow';
+import RightSidebar from './RightSidebar';
+
+
 
 
 function Bflag(props) {
-  const { user } = props;
+  const { user, isProfileVisible, toggleProfileVisibility } = props;
 
+
+  useEffect(() => {
+    console.log('Aktualny stan isProfileVisible:', isProfileVisible);
+  }, [isProfileVisible]);
 
   // Wstawianie tekstu generujac div w feedzie 
   const [inputText, setInputText] = useState('');
@@ -17,7 +26,8 @@ function Bflag(props) {
     setInputText(event.target.value);
   };
 
-  //Fetchowanie z bazy danych
+
+  // Pobieranie postów z bazy danych
   const fetchPosts = async () => {
     const { data, error } = await supabase.from('posts').select('*');
     if (error) {
@@ -34,18 +44,19 @@ function Bflag(props) {
 
 
 
-  //wstawianie posta do bazy danych
+  // Zapisywanie posta do bazy danych
   const savePostToDatabase = async (post) => {
     const { data, error } = await supabase.from('posts').insert([post]);
     if (error) {
       console.error('Error saving post:', error);
     } else {
-      console.log('Post saved successfully:', data);
+
       fetchPosts();
     }
   };
 
-  //przycisk status
+
+  // Obsługa przycisku "STATUS UPDATE"
   const handleButtonClick = () => {
     const id = uuidv4();
     const post = { id, text: inputText };
@@ -60,33 +71,10 @@ function Bflag(props) {
     <section className="main-container">
 
       <div className="main-content">
+        <LeftSidebar />
 
 
-        <div className="main-left">
-          <div className="left-sidebar">
-            <div className="left-sidebar-navbar">
-              <div className="left-navbar"><p>TAB 1</p></div>
-              <div className="left-navbar"><p>TAB 2</p></div>
-              <div className="left-navbar"><p>TAB 3</p></div>
-              <div className="left-navbar"><p>TAB 4</p> </div>
-              <div className="left-navbar"><p>TAB 5</p></div>
-              <div className="left-navbar"><p>TAB 6</p></div>
-            </div>
-            <div className="left-sidebar-ranking">
-              <div className="left-ranking">1</div>
-              <div className="left-ranking">2</div>
-              <div className="left-ranking">3</div>
-              <div className="left-ranking">4</div>
-              <div className="left-ranking">5</div>
-              <div className="left-ranking">6</div>
-              <div className="left-ranking">7</div>
-              <div className="left-ranking">8</div>
-              <div className="left-ranking">9</div>
-              <div className="left-ranking">10</div>
-            </div>
-          </div>
-        </div>
-        <div className="mainfeed">
+        {isProfileVisible ? <ProfileWindow toggleProfileVisibility={toggleProfileVisibility} /> : <div className="mainfeed slide-fwd-center ">
 
           <div className="mainfeed-container">
             <div className="mainfeed-text">
@@ -126,9 +114,11 @@ function Bflag(props) {
             </div>
 
           </div>
-        </div>
+        </div>}
 
-        <div className="main-right">    </div>
+
+
+        <RightSidebar />
       </div>
 
 

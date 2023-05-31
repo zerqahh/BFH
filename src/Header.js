@@ -1,8 +1,10 @@
 import "./App.scss";
 import "./Header.scss";
+import React, { useState, useEffect } from 'react';
+
+function Header({ onLogout, user, toggleProfileVisibility }) {
 
 
-function Header({ user, onLogout }) {
 
   return (
     <header className="App-header">
@@ -50,12 +52,14 @@ function Header({ user, onLogout }) {
             <img src={user.user_metadata.avatar_url} alt="Avatar" style={{ width: "4.5vmin", height: "4.5vmin", borderRadius: "5vmin" }} /></div>
           <ul>
             <li>
-              <button >
+              <button onClick={toggleProfileVisibility} >
                 <span>PROFILE</span>
               </button>
               <button >
-                <span>SETTING</span>
+                <span>SETTINGS</span>
               </button>
+
+
               <button onClick={onLogout}>
                 <span>SIGN OUT</span>
               </button>

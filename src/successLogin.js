@@ -13,20 +13,29 @@ import supabase from "./supabase.js";
 
 
 function Success() {
+    // Inicjalizacja stanów używanych w komponencie
     const [user, setUser] = useState({});
     const navigate = useNavigate();
     const [showGoHome, setShowGoHome] = useState(false);
     const [isLoaded, setIsLoaded] = useState(false);
+    const [isProfileVisible, setIsProfileVisible] = useState(false);
 
 
+
+    //Przelaczanie profilu uzytkownika
+    const toggleProfileVisibility = () => {
+        setIsProfileVisible(prevState => !prevState);
+    };
+
+
+    // Pobranie danych użytkownika z supabase.auth.getUser()
     useEffect(() => {
         async function getUserData() {
             await supabase.auth.getUser().then((value) => {
-                // value.data.user
                 if (value.data?.user) {
-
                     setUser(value.data.user)
                     setShowGoHome(false);
+
                 } else {
                     setShowGoHome(true);
                 }
@@ -41,22 +50,25 @@ function Success() {
 
     }, []);
 
+    // Jeżeli dane użytkownika są ładowane, wyświetl komponent Loader
     if (!isLoaded) {
         return <Loader />;
     }
 
+    // Funkcja wylogowania użytkownika
     async function signOutUser() {
         const { error } = await supabase.auth.signOut();
         navigate("/");
     }
 
+    // Renderowanie komponentu Success
     return (
 
         <div className="Success">
             {Object.keys(user).length !== 0 ? (
                 <>
-                    <Header user={user} onLogout={signOutUser} />
-                    <Bflag user={user} />
+                    <Header user={user} onLogout={signOutUser} toggleProfileVisibility={toggleProfileVisibility} />
+                    <Bflag user={user} isProfileVisible={isProfileVisible} toggleProfileVisibility={toggleProfileVisibility} />
                     <Footer />
                 </>
             ) : showGoHome ? (

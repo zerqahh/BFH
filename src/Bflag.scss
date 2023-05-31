@@ -10,196 +10,6 @@
 
 
 
-  .sidebar-left {
-    width: 55vmin;
-    height: auto;
-    max-width: 288px;
-
-    background-color: rgba(0, 0, 0, 0.91);
-    display: flex;
-    flex-direction: column;
-
-    margin-right: 10px;
-    // display: none;
-
-
-    .ranking {
-      width: 100%;
-
-      display: flex;
-      flex-direction: column;
-      // gap: 4px; 
-      gap: 0.06em;
-
-      .ranking-text {
-        width: 100%;
-
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        font-size: 3em;
-        text-transform: uppercase;
-        font-family: var(--font-secondary);
-        text-decoration: underline;
-        text-decoration-thickness: 3px;
-        text-underline-offset: 25%;
-        text-decoration-color: var(--color-pink);
-        padding-bottom: 15px;
-
-      }
-
-      .ranking-scores {
-        width: 100%;
-        display: flex;
-        flex-direction: row;
-
-
-
-        .scores-left {
-          width: 12%;
-
-          background-color: white;
-          color: black;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          font-size: 2.5em;
-          font-family: var(--font-ranking);
-          font-weight: 400;
-          border-right: 2px solid black;
-          border-top: 1px solid rgba(0, 0, 0, 1);
-          border-bottom: 1px solid rgba(0, 0, 0, 1);
-
-        }
-
-        .scores-middle {
-          width: 73%;
-
-          background-color: rgba(0, 0, 0, 0.85);
-          border-top: 1px solid rgba(0, 0, 0, 1);
-          border-bottom: 1px solid rgba(0, 0, 0, 1);
-          display: flex;
-          align-items: center;
-          justify-content: space-around;
-          // flex-direction: row-reverse;
-
-
-          .player-flag {
-            width: 25%;
-            height: 2em;
-            background-size: cover;
-            background-position: center center;
-            box-shadow: inset -100px 0px 45px -90px rgba(0, 0, 0, 1);
-            // box-shadow: inset 100px 0px 45px -55px rgba(0, 0, 0, 0.99);
-            margin-left: 1%;
-            filter: contrast(110%);
-
-          }
-
-          .player-name {
-            width: 60%;
-
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
-            font-size: 1.8em;
-            font-family: var(--font-ranking);
-            // margin-left: 5%;
-            // text-shadow: 2px 2px 1px #1e222c;
-            font-weight: 400;
-
-
-          }
-
-          #first-place.player-flag {
-            background-image: url(./assets/png-48/germany.png);
-          }
-
-          #second-place.player-flag {
-            background-image: url(./assets/png-48/usa.png);
-          }
-
-          #third-place.player-flag {
-            background-image: url(./assets/png-48/brazil.png);
-          }
-
-          #fourth-place.player-flag {
-            background-image: url(./assets/png-48/italy.png);
-          }
-
-          #fifth-place.player-flag {
-            background-image: url(./assets/png-48/gb.png);
-          }
-
-          #sixth-place.player-flag {
-            background-image: url(./assets/png-48/argentina.png);
-          }
-
-          #seventh-place.player-flag {
-            background-image: url(./assets/png-48/poland.png);
-          }
-
-          #eighth-place.player-flag {
-            background-image: url(./assets/png-48/germany.png);
-          }
-
-          #ninth-place.player-flag {
-            background-image: url(./assets/png-48/france.png);
-          }
-
-          #teenth-place.player-flag {
-            background-image: url(./assets/png-48/usa.png);
-          }
-
-          #eleventh-place.player-flag {
-            background-image: url(./assets/png-48/germany.png);
-          }
-
-          #twelfth-place.player-flag {
-            background-image: url(./assets/png-48/chile.png);
-          }
-
-          #thirteenth-place.player-flag {
-            background-image: url(./assets/png-48/brazil.png);
-          }
-
-          #fourteenth-place.player-flag {
-            background-image: url(./assets/png-48/argentina.png);
-          }
-
-          #fifteenth-place.player-flag {
-            background-image: url(./assets/png-48/poland.png);
-          }
-        }
-
-        .scores-right {
-          width: 15%;
-
-          background-color: var(--color-pink);
-          border-top: 1px solid rgba(0, 0, 0, 1);
-          border-bottom: 1px solid rgba(0, 0, 0, 1);
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          font-family: var(--font-ranking);
-          font-size: 4vmin;
-          font-weight: 500;
-          text-shadow: 1px 1px 1px black;
-        }
-      }
-
-      .scores-middle:hover {
-        background-color: gray;
-        cursor: pointer;
-        transition: 0.2s;
-
-
-        ~.scores-right {
-          background-color: rgba(255, 217, 0, 0.8);
-        }
-      }
-    }
-  }
 
   .main-content {
     width: 100%;
@@ -208,13 +18,14 @@
     justify-content: space-between;
     align-items: center;
 
-    .main-left {
+
+    .sidebar-left {
       width: 15%;
       height: 100%;
       background-color: rgb(12, 12, 12);
 
 
-      .left-sidebar {
+      .left-sidebar-container {
         width: 100%;
         height: 100%;
         display: flex;
@@ -270,14 +81,11 @@
 
     .mainfeed {
       width: 70%;
-      height: 100%;
+      height: 90%;
       display: flex;
       justify-content: center;
       flex-direction: column-reverse;
-      // border-left: 1px solid white;
-      // border-right: 1px solid white;
-
-
+      // display: none;
 
       .mainfeed-container {
         width: 100%;
@@ -297,13 +105,13 @@
           gap: 1%;
 
           .mainfeed-top {
-            width: 95%;
+            width: 85%;
             height: 15%;
 
             display: flex;
             flex-direction: column;
 
-            background-color: rgb(123, 123, 136);
+            background-color: rgb(12, 12, 12);
 
 
 
@@ -486,7 +294,7 @@
 
     }
 
-    .main-right {
+    .sidebar-right {
       width: 15%;
       height: 100%;
       background-color: rgb(8, 8, 8);
@@ -496,27 +304,146 @@
 }
 
 
+.profile-container {
+  width: 65%;
+  height: 90%;
+
+  display: flex;
+  background-color: #0c0c0c;
 
 
+  .profile-avatar-and-description {
+    width: 25%;
+    height: 100%;
+    background-color: rgb(8, 8, 8);
+
+    .profile-avatar-container {
+      width: 100%;
+      height: 35%;
+      display: flex;
+      flex-direction: column;
+
+      justify-content: center;
+      align-items: center;
 
 
-.sidebar-right {
-  width: 30vmin;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 1);
+      .profile-avatar {
+        width: 85%;
+        height: 85%;
+        background-image: url(./assets/bazaar2.png);
+        background-position: center center;
+        background-size: cover;
+        border: 1px solid rgb(0, 0, 0);
 
-  // border-left: var(--border);
-  // border-top: var(--border);
-  // border-bottom: var(--border);
+      }
+    }
+  }
+
+  .profile-data-container {
+    width: 75%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .profile-data-content {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+
+    }
+
+    .profile-nickname {
+      width: 90%;
+      height: 10%;
+      font-size: 3vmin;
+      display: flex;
+      justify-content: flex-start;
+      align-items: flex-end;
+      font-family: var(--font-secondary);
+      border-bottom: solid 0.25vmin var(--color-pink);
+      letter-spacing: 0.1vmin;
+
+
+      h1 {
+        filter: blur(0.6px);
+        margin-left: 2vmin;
+        margin-bottom: 0.5vmin;
+      }
+    }
+  }
 }
 
 
+.scale-up-ver-top {
+  -webkit-animation: scale-up-ver-top 0.15s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+  animation: scale-up-ver-top 0.15s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+}
 
-@media (max-width: 1700px) {
-  .main-container {}
+@-webkit-keyframes scale-up-ver-top {
+  0% {
+    -webkit-transform: scaleY(0.4);
+    transform: scaleY(0.4);
+    -webkit-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
+  }
+
+  100% {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+    -webkit-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
+  }
+}
+
+@keyframes scale-up-ver-top {
+  0% {
+    -webkit-transform: scaleY(0.4);
+    transform: scaleY(0.4);
+    -webkit-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
+  }
+
+  100% {
+    -webkit-transform: scaleY(1);
+    transform: scaleY(1);
+    -webkit-transform-origin: 100% 0%;
+    transform-origin: 100% 0%;
+  }
 }
 
 
-@media (max-height: 820px) {
-  .main-container {}
+.shadow-drop-2-center {
+  -webkit-animation: shadow-drop-2-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+  animation: shadow-drop-2-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+}
+
+/* ----------------------------------------------
+ * Generated by Animista on 2023-5-31 6:19:38
+ * Licensed under FreeBSD License.
+ * See http://animista.net/license for more info. 
+ * w: http://animista.net, t: @cssanimista
+ * ---------------------------------------------- */
+
+/**
+ * ----------------------------------------
+ * animation shadow-drop-2-center
+ * ----------------------------------------
+ */
+@-webkit-keyframes shadow-drop-2-center {
+  0% {
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    -webkit-transform: translateZ(50px);
+    transform: translateZ(50px);
+    -webkit-box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+  }
 }
