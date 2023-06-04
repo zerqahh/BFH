@@ -87,6 +87,7 @@
       flex-direction: column-reverse;
       // display: none;
 
+
       .mainfeed-container {
         width: 100%;
         height: 99%;
@@ -104,16 +105,13 @@
           flex-direction: column;
           gap: 1%;
 
+
           .mainfeed-top {
             width: 85%;
             height: 15%;
-
             display: flex;
             flex-direction: column;
-
-            background-color: rgb(12, 12, 12);
-
-
+            background-color: #0c0c0c;
 
           }
 
@@ -129,15 +127,16 @@
             align-items: center;
             justify-content: center;
 
+
             .mainfeed-post {
               width: 100%;
               height: 15%;
-              background-color: rgb(22, 22, 22);
               display: flex;
               flex-direction: row;
               justify-content: center;
               align-items: center;
               gap: 1%;
+              background-color: black;
 
 
               p {
@@ -191,7 +190,14 @@
                   border-radius: 0.3vmin;
                   cursor: pointer;
 
+                  &:hover {
+                    background-color: rgb(192, 19, 111);
+                    transition: 0.3s;
+                  }
 
+                  &:focus {
+                    background-color: red;
+                  }
 
                 }
 
@@ -206,28 +212,32 @@
               flex-direction: column;
               align-items: center;
               overflow-y: scroll;
-              scrollbar-width: thin;
+              scrollbar-width: none;
               scrollbar-color: transparent transparent;
 
+
               .mainfeed-view-title {
-                width: 95%;
+                width: 100%;
                 text-align: center;
                 margin-bottom: 1vmin;
+                background-color: #080808;
+
 
                 p {
-                  border-bottom: 0.1vmin solid var(--color-pink);
+
                   font-family: var(--font-primary);
                   font-size: 4vmin;
                   letter-spacing: 0.5vmin;
                   margin-top: 0.1vmin;
                   font-weight: 500;
+                  border-bottom: 0.1vmin solid var(--color-pink);
 
                 }
 
               }
 
               .mainfeed-view-generated {
-                width: 100%;
+                width: 95%;
                 height: auto;
                 background-color: rgb(194, 200, 212);
                 // border-bottom: 0.2vmin solid rgb(58, 57, 57);
@@ -237,6 +247,7 @@
 
                 box-shadow: 0px 2vmin 6vmin 0px rgb(0, 0, 0);
                 word-wrap: break-word;
+
 
                 .generated-container {
                   width: 100%;
@@ -259,8 +270,8 @@
 
                 #nick {
                   font-weight: 600;
-                  font-size: 1.75vmin;
-                  color: rgb(231, 229, 229);
+                  font-size: 1.5vmin;
+                  color: rgb(206, 206, 206);
                   font-family: var(--font-ranking);
 
 
@@ -300,150 +311,5 @@
       background-color: rgb(8, 8, 8);
 
     }
-  }
-}
-
-
-.profile-container {
-  width: 65%;
-  height: 90%;
-
-  display: flex;
-  background-color: #0c0c0c;
-
-
-  .profile-avatar-and-description {
-    width: 25%;
-    height: 100%;
-    background-color: rgb(8, 8, 8);
-
-    .profile-avatar-container {
-      width: 100%;
-      height: 35%;
-      display: flex;
-      flex-direction: column;
-
-      justify-content: center;
-      align-items: center;
-
-
-      .profile-avatar {
-        width: 85%;
-        height: 85%;
-        background-image: url(./assets/bazaar2.png);
-        background-position: center center;
-        background-size: cover;
-        border: 1px solid rgb(0, 0, 0);
-
-      }
-    }
-  }
-
-  .profile-data-container {
-    width: 75%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-
-    .profile-data-content {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-
-
-    }
-
-    .profile-nickname {
-      width: 90%;
-      height: 10%;
-      font-size: 3vmin;
-      display: flex;
-      justify-content: flex-start;
-      align-items: flex-end;
-      font-family: var(--font-secondary);
-      border-bottom: solid 0.25vmin var(--color-pink);
-      letter-spacing: 0.1vmin;
-
-
-      h1 {
-        filter: blur(0.6px);
-        margin-left: 2vmin;
-        margin-bottom: 0.5vmin;
-      }
-    }
-  }
-}
-
-
-.scale-up-ver-top {
-  -webkit-animation: scale-up-ver-top 0.15s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-  animation: scale-up-ver-top 0.15s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-}
-
-@-webkit-keyframes scale-up-ver-top {
-  0% {
-    -webkit-transform: scaleY(0.4);
-    transform: scaleY(0.4);
-    -webkit-transform-origin: 100% 0%;
-    transform-origin: 100% 0%;
-  }
-
-  100% {
-    -webkit-transform: scaleY(1);
-    transform: scaleY(1);
-    -webkit-transform-origin: 100% 0%;
-    transform-origin: 100% 0%;
-  }
-}
-
-@keyframes scale-up-ver-top {
-  0% {
-    -webkit-transform: scaleY(0.4);
-    transform: scaleY(0.4);
-    -webkit-transform-origin: 100% 0%;
-    transform-origin: 100% 0%;
-  }
-
-  100% {
-    -webkit-transform: scaleY(1);
-    transform: scaleY(1);
-    -webkit-transform-origin: 100% 0%;
-    transform-origin: 100% 0%;
-  }
-}
-
-
-.shadow-drop-2-center {
-  -webkit-animation: shadow-drop-2-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-  animation: shadow-drop-2-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
-}
-
-/* ----------------------------------------------
- * Generated by Animista on 2023-5-31 6:19:38
- * Licensed under FreeBSD License.
- * See http://animista.net/license for more info. 
- * w: http://animista.net, t: @cssanimista
- * ---------------------------------------------- */
-
-/**
- * ----------------------------------------
- * animation shadow-drop-2-center
- * ----------------------------------------
- */
-@-webkit-keyframes shadow-drop-2-center {
-  0% {
-    -webkit-transform: translateZ(0);
-    transform: translateZ(0);
-    -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-  }
-
-  100% {
-    -webkit-transform: translateZ(50px);
-    transform: translateZ(50px);
-    -webkit-box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
-    box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
   }
 }

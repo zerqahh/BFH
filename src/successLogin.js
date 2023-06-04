@@ -44,7 +44,7 @@ function Success() {
 
             setTimeout(() => {
                 setIsLoaded(true); // Ustawienie stanu isLoaded na true po opóźnieniu
-            }, 300);
+            }, 330);
         }
         getUserData();
 

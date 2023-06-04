@@ -1,0 +1,281 @@
+.profile-container {
+    width: 65%;
+    height: 90%;
+
+    display: flex;
+    background-color: #0c0c0c;
+
+
+    .profile-avatar-and-description {
+        width: 25%;
+        height: 100%;
+        background-color: rgb(8, 8, 8);
+
+        h6 {
+            font-size: 1.25vmin;
+            width: 30%;
+            font-family: var(--font-ranking);
+        }
+
+        .profile-avatar-container {
+            width: 100%;
+            height: 35%;
+            display: flex;
+            flex-direction: column;
+
+            justify-content: center;
+            align-items: center;
+
+
+            .profile-avatar {
+                width: 85%;
+                height: 85%;
+                background-image: url(./assets/zerq.jpg);
+                background-position: center center;
+                background-size: cover;
+                border: 0.1vmin solid rgb(0, 0, 0);
+
+            }
+        }
+
+        .profile-description-container {
+            width: 100%;
+            height: 65%;
+            display: flex;
+            justify-content: center;
+
+
+            .profile-description-content {
+                width: 85%;
+                height: 98%;
+                border-bottom: 0.1vmin solid rgb(70, 69, 69);
+
+                .profile-membership {
+                    width: 100%;
+                    display: flex;
+                    flex-direction: column;
+                    gap: 0.5vmin;
+
+                    padding-bottom: 1vmin;
+
+
+
+
+                    .profile-group {
+                        width: 100%;
+                        height: 3vmin;
+
+                        display: flex;
+                        align-items: center;
+                        background-color: #1a1a1a;
+                        gap: 1vmin;
+                        border: none;
+                        cursor: pointer;
+
+
+
+                        .profile-group-logo {
+                            width: 10%;
+                            height: 100%;
+                            background-color: rgb(37, 36, 36);
+
+                        }
+
+                        h5 {
+                            font-size: 1.25vmin;
+                            font-family: var(--font-ranking);
+                        }
+
+                        &:hover {
+                            background-color: #3f3f3f;
+                            transition: 0.1s;
+                            color: rgba(255, 255, 255, 0.8);
+                            background-color: var(--color-pink);
+                        }
+
+                    }
+
+
+                }
+
+                .profile-skillcheck {
+                    width: 100%;
+                    height: 35%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-around;
+                    gap: 0.5vmin;
+
+                    .profile-skillcheck-container {
+                        width: 100%;
+                        height: 100%;
+                        background-color: #1a1a1a;
+
+                    }
+                }
+
+                .profile-description-contactlist {
+                    width: 100%;
+                    height: 15%;
+
+                    display: flex;
+                    flex-direction: column;
+                    // gap: 0.3vmin;
+
+
+
+
+                    .profile-description-contactlist-item {
+                        width: 100%;
+                        height: 33%;
+
+
+                    }
+                }
+            }
+        }
+
+
+    }
+
+
+
+    .profile-data-container {
+        width: 75%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+
+        .profile-data-content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            .profile-nickname {
+                width: 100%;
+                height: 10%;
+                font-size: 3vmin;
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                font-family: var(--font-secondary);
+                border-bottom: solid 0.25vmin var(--color-pink);
+                letter-spacing: 0.1vmin;
+                justify-content: space-between;
+                background-color: #080808;
+
+                h1 {
+                    filter: blur(0.1px);
+                    margin-left: 2vmin;
+
+                }
+
+                button {
+
+                    border: 1px solid transparent;
+                    padding: 1vmin 2vmin;
+                    width: auto;
+                    font-size: 1.5vmin;
+                    font-weight: 400;
+                    font-family: var(--font-primary);
+                    background-color: #1a1a1a;
+                    cursor: pointer;
+                    white-space: nowrap;
+                    border-radius: 5vmin;
+
+
+                }
+
+                button:hover {
+                    background-color: var(--color-pink);
+                    transition: 0.1s;
+                }
+
+
+
+            }
+
+
+
+        }
+
+
+
+    }
+
+
+
+
+    .scale-up-ver-top {
+        -webkit-animation: scale-up-ver-top 0.15s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+        animation: scale-up-ver-top 0.15s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    }
+
+    @-webkit-keyframes scale-up-ver-top {
+        0% {
+            -webkit-transform: scaleY(0.4);
+            transform: scaleY(0.4);
+            -webkit-transform-origin: 100% 0%;
+            transform-origin: 100% 0%;
+        }
+
+        100% {
+            -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+            -webkit-transform-origin: 100% 0%;
+            transform-origin: 100% 0%;
+        }
+    }
+
+    @keyframes scale-up-ver-top {
+        0% {
+            -webkit-transform: scaleY(0.4);
+            transform: scaleY(0.4);
+            -webkit-transform-origin: 100% 0%;
+            transform-origin: 100% 0%;
+        }
+
+        100% {
+            -webkit-transform: scaleY(1);
+            transform: scaleY(1);
+            -webkit-transform-origin: 100% 0%;
+            transform-origin: 100% 0%;
+        }
+    }
+
+
+    .shadow-drop-2-center {
+        -webkit-animation: shadow-drop-2-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+        animation: shadow-drop-2-center 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940) both;
+    }
+
+    /* ----------------------------------------------
+   * Generated by Animista on 2023-5-31 6:19:38
+   * Licensed under FreeBSD License.
+   * See http://animista.net/license for more info. 
+   * w: http://animista.net, t: @cssanimista
+   * ---------------------------------------------- */
+
+    /**
+   * ----------------------------------------
+   * animation shadow-drop-2-center
+   * ----------------------------------------
+   */
+    @-webkit-keyframes shadow-drop-2-center {
+        0% {
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+        }
+
+        100% {
+            -webkit-transform: translateZ(50px);
+            transform: translateZ(50px);
+            -webkit-box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+        }
+    }
+}

@@ -97,8 +97,8 @@
 
             svg {
               fill: white;
-              width: 2.5vmin;
-              height: 2.5vmin;
+              width: 2vmin;
+              height: 2vmin;
             }
 
             &:active {
@@ -180,6 +180,7 @@
             background-color: #1a1a1a;
             cursor: pointer;
             white-space: nowrap;
+            color: rgba(255, 255, 255, 0.9);
           }
 
           button:hover {

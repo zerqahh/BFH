@@ -4,9 +4,14 @@
     align-items: center;
     width: 100vw;
     height: 88vmin;
-    background-image: url(./assets/bg-bf3.jpg);
+    // background-image: url(./assets/bg-bf3.jpg);
     background-position: center center;
     background-size: cover;
+    flex-direction: column-reverse;
+}
+
+h4 {
+    font-family: var(--font-ranking);
 }
 
 .loader-top {
