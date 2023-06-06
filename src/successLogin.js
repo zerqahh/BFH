@@ -7,7 +7,7 @@ import Footer from "./footer.js";
 import Loader from './Loader';
 import supabase from "./supabase.js";
 
-
+import { UserContext } from './UserContext';
 
 
 
@@ -63,22 +63,23 @@ function Success() {
 
     // Renderowanie komponentu Success
     return (
+        <UserContext.Provider value={{ user, signOutUser, toggleProfileVisibility }}>
+            <div className="Success">
+                {Object.keys(user).length !== 0 ? (
+                    <>
+                        <Header />
+                        <Bflag isProfileVisible={isProfileVisible} />
+                        <Footer />
+                    </>
+                ) : showGoHome ? (
+                    <>
+                        <h1>U are not logged in</h1>
+                        <button onClick={() => { navigate("/") }}>Go home!</button>
+                    </>
+                ) : null}
 
-        <div className="Success">
-            {Object.keys(user).length !== 0 ? (
-                <>
-                    <Header user={user} onLogout={signOutUser} toggleProfileVisibility={toggleProfileVisibility} />
-                    <Bflag user={user} isProfileVisible={isProfileVisible} toggleProfileVisibility={toggleProfileVisibility} />
-                    <Footer />
-                </>
-            ) : showGoHome ? (
-                <>
-                    <h1>U are not logged in</h1>
-                    <button onClick={() => { navigate("/") }}>Go home!</button>
-                </>
-            ) : null}
-
-        </div>
+            </div>
+        </UserContext.Provider>
     );
 }
 

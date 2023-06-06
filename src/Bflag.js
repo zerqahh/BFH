@@ -6,13 +6,13 @@ import supabase from "./supabase.js";
 import LeftSidebar from './LeftSidebar';
 import ProfileWindow from './ProfileWindow';
 import RightSidebar from './RightSidebar';
-
-
+import MainFeedComponent from "./MainFeed";
+import { UserContext } from './UserContext';
 
 
 function Bflag(props) {
-  const { user, isProfileVisible, toggleProfileVisibility } = props;
-
+  const { isProfileVisible, } = props;
+  const { user, toggleProfileVisibility } = React.useContext(UserContext);
 
 
   useEffect(() => {
@@ -46,10 +46,9 @@ function Bflag(props) {
 
 
   // Zapisywanie posta do bazy danych
-  // Zapisywanie posta do bazy danych
   const savePostToDatabase = async (post) => {
     const author = user.id;
-    const avatar = user.user_metadata.avatar_url; // Pobierz link do avatara Discord z user.app_metadata.providers[0].avatar
+    const avatar = user.user_metadata.avatar_url;
     const username = user.user_metadata.full_name;
 
 
@@ -76,65 +75,21 @@ function Bflag(props) {
 
   return (
     <section className="main-container">
-
       <div className="main-content">
         <LeftSidebar />
-
-
-        {isProfileVisible ? <ProfileWindow toggleProfileVisibility={toggleProfileVisibility} /> : <div className="mainfeed slide-fwd-center ">
-
-          <div className="mainfeed-container">
-            <div className="mainfeed-text">
-              <div className="mainfeed-top">
-
-              </div>
-              <div className="mainfeed-bottom">
-                <div className="mainfeed-post"><p>STATUS UPDATE</p>
-                  <div className="mainfeed-post-input">
-                    <input value={inputText} onChange={handleInputChange} maxLength={1000} />
-                    <button onClick={handleButtonClick} disabled={inputText.trim() === ''}>STATUS UPDATE</button>
-                  </div>
-                </div>
-                <div className="mainfeed-view">
-                  <div className="mainfeed-view-title">
-                    <p>BATTLEFEED</p>
-
-                  </div>
-
-                  {generatedText.map((post) => {
-                    const { avatar, username } = post;
-                    return (
-                      <div className="mainfeed-view-generated" key={post.id}>
-                        <div className="generated-container">
-                          <img
-                            src={avatar}
-                            alt="Avatar"
-                            style={{ width: "4.5vmin", height: "4.5vmin" }}
-                          />
-                          <div className="generated-post">
-                            <p id="nick">{username}:</p>
-                            <p>{post.text}</p>
-                            {/* <a href={`https://bflaghub.com/posts/${post.id}`}>Przejdź do postu</a> */}
-                          </div>
-                        </div>
-                      </div>
-                    );
-                  })}
-
-                </div>
-              </div>
-            </div>
-
-          </div>
-        </div>}
-
-
-
+        {isProfileVisible ? (
+          <ProfileWindow toggleProfileVisibility={toggleProfileVisibility} />
+        ) : (
+          <MainFeedComponent
+            inputText={inputText}
+            handleInputChange={handleInputChange}
+            handleButtonClick={handleButtonClick}
+            generatedText={generatedText}
+          />
+        )}
         <RightSidebar />
       </div>
-
-
-    </section >
+    </section>
   );
 }
 

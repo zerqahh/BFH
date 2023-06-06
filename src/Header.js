@@ -1,9 +1,10 @@
 import "./App.scss";
 import "./Header.scss";
 import React, { useState, useEffect } from 'react';
+import { UserContext } from './UserContext';
 
-function Header({ onLogout, user, toggleProfileVisibility }) {
-
+function Header() {
+  const { user, signOutUser, toggleProfileVisibility } = React.useContext(UserContext);
 
 
   return (
@@ -60,7 +61,7 @@ function Header({ onLogout, user, toggleProfileVisibility }) {
               </button>
 
 
-              <button onClick={onLogout}>
+              <button onClick={signOutUser}>
                 <span>SIGN OUT</span>
               </button>
 
