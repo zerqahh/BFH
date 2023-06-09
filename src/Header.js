@@ -22,7 +22,8 @@ function Header() {
   const myProfileOff = () => {
     setProfileVisibilityFalse();
   };
-
+  console.log("user.avatar", user.avatar)
+  console.log("user.nickname", user.nickname)
   return (
     <header className="App-header">
       <div className="header-content">
@@ -68,6 +69,7 @@ function Header() {
 
           <div className="login-avatar">
             <img src={user.avatar} alt="Avatar" style={{ width: "4.5vmin", height: "4.5vmin", borderRadius: "5vmin" }} /></div>
+
           <ul>
             <li>
               <button onClick={handleProfileToggle}>

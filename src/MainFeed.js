@@ -34,7 +34,7 @@ const MainFeedComponent = ({ inputText, handleInputChange, handleButtonClick, ge
                                                 style={{ width: '4.5vmin', height: '4.5vmin' }}
                                             />
                                             <div className="generated-post">
-                                                <p id="nick">{username}:</p>
+                                                <p id="nick">{username} said:</p>
                                                 <p>{post.text}</p>
                                             </div>
                                         </div>

@@ -4,8 +4,8 @@ import supabase from './supabase';
 const store = createStore({
     user: {
         user: {
-            nickname: localStorage.getItem('nickname') || 'default nickname',
-            avatar: localStorage.getItem('avatar') || 'default avatar',
+            nickname: ('nickname') || 'default nickname',
+            avatar: ('avatar') || 'default avatar',
         },
         setUser: action((state, payload) => {
             state.user = { ...state.user, ...payload };

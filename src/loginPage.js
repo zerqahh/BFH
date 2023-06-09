@@ -29,10 +29,10 @@ function LoginPage() {
                 setRecordCreated(true); // Ustawienie flagi na true po utworzeniu rekordu
             }
 
-            store.getActions().user.setUser({
-                nickname: username,
-                avatar: avatar,
-            });
+            // store.getActions().user.setUser({
+            //     nickname: username,
+            //     avatar: avatar,
+            // });
 
 
             navigate("/bf3");
@@ -67,10 +67,6 @@ function LoginPage() {
         return data[0];
     }
 
-    async function handleLogin() {
-        // Obsługa logiki logowania
-    }
-
     return (
         <div className="login-background">
             <div className="loginPage">
@@ -84,7 +80,7 @@ function LoginPage() {
                         }}
                         theme="dark"
                         providers={["discord"]}
-                        handleLogin={handleLogin}
+
                     />
                 )}
             </div>
