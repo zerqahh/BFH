@@ -4,8 +4,8 @@ import "./Bflag.scss"
 function LeftSidebar() {
     return (
         <div className="sidebar-left">
-            <div className="left-sidebar-container">
-                <div className="left-sidebar-navbar">
+
+            {/* <div className="left-sidebar-navbar">
                     <div className="left-navbar"><p>TAB 1</p></div>
                     <div className="left-navbar"><p>TAB 2</p></div>
                     <div className="left-navbar"><p>TAB 3</p></div>
@@ -24,8 +24,9 @@ function LeftSidebar() {
                     <div className="left-ranking">8</div>
                     <div className="left-ranking">9</div>
                     <div className="left-ranking">10</div>
-                </div>
-            </div>
+                </div> */}
+            <p>Not even dev knows whats gonna be here</p>
+
         </div>
 
     )

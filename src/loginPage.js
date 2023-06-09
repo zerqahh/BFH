@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react';
 import { Auth } from "@supabase/auth-ui-react";
 import { ThemeSupa } from '@supabase/auth-ui-shared';
 import "./loginPage.scss";
+import store from './store'; // Importuj utworzony wcześniej store
 
 const supabase = createClient(
     "https://hunvqnqhkoajdylgpfkk.supabase.co",
@@ -27,6 +28,12 @@ function LoginPage() {
                 await createUserRecord(discordUserId, username, avatar);
                 setRecordCreated(true); // Ustawienie flagi na true po utworzeniu rekordu
             }
+
+            store.getActions().user.setUser({
+                nickname: username,
+                avatar: avatar,
+            });
+
 
             navigate("/bf3");
         }

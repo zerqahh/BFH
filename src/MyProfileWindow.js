@@ -1,12 +1,15 @@
 import React from 'react';
-import "./ProfileWindow.scss"
+import "./MyProfileWindow.scss"
+import { useStoreState, useStoreActions } from 'easy-peasy';
 
-function ProfileWindow({ toggleProfileVisibility }) {
+function MyProfileWindow() {
+    const user = useStoreState((state) => state.user.user);
+
     return (
         <div className='profile-container scale-up-ver-top   '>
             <div className='profile-avatar-and-description'>
                 <div className='profile-avatar-container'>
-                    <div className='profile-avatar'></div>
+                    <div className='profile-avatar'> <img src={user.avatar} alt="Avatar" /></div>
                 </div>
                 <div className="profile-description-container">
                     <div className='profile-description-content'>
@@ -30,15 +33,6 @@ function ProfileWindow({ toggleProfileVisibility }) {
                             <h6>SKILLCHECK</h6>
                             <div className='profile-skillcheck-container'></div>
                         </div>
-
-
-
-                        {/* <div className='profile-description-contactlist'>
-                            <h6>CONTACT</h6>
-                            <div className='profile-description-contactlist-item'><h4>Discord</h4></div>
-                            <div className='profile-description-contactlist-item'>Battlelog</div>
-
-                        </div> */}
                     </div>
                 </div>
             </div>
@@ -48,8 +42,7 @@ function ProfileWindow({ toggleProfileVisibility }) {
 
                 <div className='profile-data-content'>
                     <div className='profile-nickname'>
-                        <><h1>zerqPROSPIELER</h1></>
-                        <><button onClick={toggleProfileVisibility} >HOME</button></>
+                        <><h1>{user.nickname}</h1></>
                     </div>
 
 
@@ -61,4 +54,5 @@ function ProfileWindow({ toggleProfileVisibility }) {
 
 }
 
-export default ProfileWindow;
+export default MyProfileWindow;
+

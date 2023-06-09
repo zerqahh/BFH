@@ -4,20 +4,18 @@ import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import supabase from "./supabase.js";
 import LeftSidebar from './LeftSidebar';
-import ProfileWindow from './ProfileWindow';
+import MyProfileWindow from './MyProfileWindow';
 import RightSidebar from './RightSidebar';
 import MainFeedComponent from "./MainFeed";
-import { UserContext } from './UserContext';
+import { useStoreActions, useStoreState } from 'easy-peasy';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import FriendProfile from "./FriendProfile";
 
+function Bflag() {
 
-function Bflag(props) {
-  const { isProfileVisible, } = props;
-  const { user, toggleProfileVisibility } = React.useContext(UserContext);
+  const user = useStoreState((state) => state.user.user); // Pobierz użytkownika z magazynu
+  const isProfileVisible = useStoreState((state) => state.profile.isProfileVisible); // MOJ PROFIL!!!
 
-
-  useEffect(() => {
-
-  }, [isProfileVisible]);
 
   // Wstawianie tekstu generujac div w feedzie 
   const [inputText, setInputText] = useState('');
@@ -77,15 +75,16 @@ function Bflag(props) {
     <section className="main-container">
       <div className="main-content">
         <LeftSidebar />
-        {isProfileVisible ? (
-          <ProfileWindow toggleProfileVisibility={toggleProfileVisibility} />
-        ) : (
-          <MainFeedComponent
-            inputText={inputText}
-            handleInputChange={handleInputChange}
-            handleButtonClick={handleButtonClick}
-            generatedText={generatedText}
-          />
+        {isProfileVisible ? <MyProfileWindow /> : (
+          <Routes>
+            <Route path="/" element={<MainFeedComponent
+              inputText={inputText}
+              handleInputChange={handleInputChange}
+              handleButtonClick={handleButtonClick}
+              generatedText={generatedText}
+            />} />
+            <Route path="/friends/:friendId" element={<FriendProfile />} />
+          </Routes>
         )}
         <RightSidebar />
       </div>

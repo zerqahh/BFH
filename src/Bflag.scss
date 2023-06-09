@@ -23,7 +23,17 @@
       width: 15%;
       height: 100%;
       background-color: rgb(12, 12, 12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
 
+      p {
+        font-family: var(--font-primary);
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 1.75vmin;
+        width: 70%;
+      }
 
       .left-sidebar-container {
         width: 100%;
@@ -311,13 +321,17 @@
       background-color: rgb(8, 8, 8);
       display: flex;
       flex-direction: column;
+      overflow-y: scroll;
+      scrollbar-width: none;
+      scrollbar-color: transparent transparent;
 
       .friendlist {
         width: 100%;
         height: 5vmin;
         display: flex;
-
+        text-decoration: none;
         justify-content: center;
+        color: white;
         // border-bottom: 1px solid rgba(255, 255, 255, 0.226);
 
         .friend-user {
@@ -336,7 +350,7 @@
           }
 
           p {
-            margin-left: 15px;
+            margin-left: 1vmin;
             font-size: 1.75vmin;
             font-family: var(--font-ranking);
           }
@@ -348,8 +362,11 @@
 
 .friendlist:hover {
   background-color: rgba(255, 255, 255, 0.123);
-  border-left: 0.6vmin solid var(--color-pink);
+  border-left: 0.2vmin solid white;
   cursor: pointer;
-  transition: 0.1s;
 
+
+  p {
+    color: rgba(255, 255, 255, 0.6);
+  }
 }

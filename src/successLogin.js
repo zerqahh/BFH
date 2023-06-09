@@ -1,4 +1,6 @@
 
+
+import { useStore } from 'easy-peasy';
 import { useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from 'react';
 import Header from "./Header.js";
@@ -7,26 +9,24 @@ import Footer from "./footer.js";
 import Loader from './Loader';
 import supabase from "./supabase.js";
 
-import { UserContext } from './UserContext';
-
 
 
 
 function Success() {
-    // Inicjalizacja stanów używanych w komponencie
-    const [user, setUser] = useState({});
     const navigate = useNavigate();
+    const store = useStore();
+    const user = store.getState().user.user;
+    const setUser = store.getActions().user.setUser;
     const [showGoHome, setShowGoHome] = useState(false);
     const [isLoaded, setIsLoaded] = useState(false);
-    const [isProfileVisible, setIsProfileVisible] = useState(false);
 
 
-
-    //Przelaczanie profilu uzytkownika
-    const toggleProfileVisibility = () => {
-        setIsProfileVisible(prevState => !prevState);
-    };
-
+    // Zaktualizuj dane użytkownika w magazynie EasyPeasy i localStorage (avatar i nickname osoby zalogowanej)
+    useEffect(() => {
+        setUser(user);
+        localStorage.setItem('nickname', user.nickname);
+        localStorage.setItem('avatar', user.avatar);
+    }, [setUser, user]);
 
     // Pobranie danych użytkownika z supabase.auth.getUser()
     useEffect(() => {
@@ -44,7 +44,7 @@ function Success() {
 
             setTimeout(() => {
                 setIsLoaded(true); // Ustawienie stanu isLoaded na true po opóźnieniu
-            }, 330);
+            }, 350);
         }
         getUserData();
 
@@ -55,31 +55,27 @@ function Success() {
         return <Loader />;
     }
 
-    // Funkcja wylogowania użytkownika
-    async function signOutUser() {
-        const { error } = await supabase.auth.signOut();
-        navigate("/");
-    }
+
 
     // Renderowanie komponentu Success
     return (
-        <UserContext.Provider value={{ user, signOutUser, toggleProfileVisibility }}>
-            <div className="Success">
-                {Object.keys(user).length !== 0 ? (
-                    <>
-                        <Header />
-                        <Bflag isProfileVisible={isProfileVisible} />
-                        <Footer />
-                    </>
-                ) : showGoHome ? (
-                    <>
-                        <h1>U are not logged in</h1>
-                        <button onClick={() => { navigate("/") }}>Go home!</button>
-                    </>
-                ) : null}
 
-            </div>
-        </UserContext.Provider>
+        <div className="Success">
+            {Object.keys(user).length !== 0 ? (
+                <>
+                    <Header />
+                    <Bflag />
+                    <Footer />
+                </>
+            ) : showGoHome ? (
+                <>
+                    <h1>U are not logged in</h1>
+                    <button onClick={() => { navigate("/") }}>Go home!</button>
+                </>
+            ) : null}
+
+        </div>
+
     );
 }
 
