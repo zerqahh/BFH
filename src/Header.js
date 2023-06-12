@@ -75,9 +75,9 @@ function Header() {
               <button onClick={handleProfileToggle}>
                 <span>PROFILE</span>
               </button>
-              <button >
+               {/* <button >
                 <span>SETTINGS</span>
-              </button>
+              </button> */}
 
 
               <button onClick={signOutUser}>
