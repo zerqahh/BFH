@@ -2,7 +2,7 @@
 
                          || Work in progress||
 
-Aplikacja BFH-mischief to serwis spolecznosciowy skupiony wokol spolecznosci graczy Battlefield stanowiacy alternatywe dla Battleloga oraz zintegrowany z Venice Unleashed. Projekt ma ulatwic organizowanie turniejow, eventow oraz dostarczac rozszerzone statystyki graczy. 
+Aplikacja BFH-mischief to serwis spolecznosciowy skupiony wokół społecznosci graczy Battlefield mający w przyszłości stanowić alternatywę dla Battleloga oraz być zintegrowanym z Venice Unleashed. Projekt ma ulatwic organizowanie turniejow, eventow oraz dostarczac rozszerzone statystyki zawodników. 
 
 
 
